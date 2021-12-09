@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "302329143848",
+    "project_id": "hakum-f7562",
+    "storage_bucket": "hakum-f7562.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:302329143848:android:d58f8cf36de8401fc48b1d",
+        "android_client_info": {
+          "package_name": "com.example.hakut"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "302329143848-udqqnbvnkq74ehk2hu9qsqii9t0ot257.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5N2DspfW_1lg6trbscAFFWJc7hDDWkfI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "302329143848-udqqnbvnkq74ehk2hu9qsqii9t0ot257.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

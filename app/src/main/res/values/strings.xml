@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Hakut</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="email">Email</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="registrarse">Registrarse</string>
+</resources>
