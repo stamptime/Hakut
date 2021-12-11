@@ -9,6 +9,8 @@ import com.example.hakut.model.Store
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.text.FieldPosition
+import java.util.*
 
 enum class ProviderType{
     BASIC,
@@ -46,6 +48,8 @@ class HomeActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
 
+
+
         /* Mostrando las tiendas en el homeActivity*/
         db.collection("stores").get().addOnSuccessListener { resultado ->
             val storeList = arrayListOf<Store>()
@@ -53,12 +57,25 @@ class HomeActivity : AppCompatActivity() {
                 storeList.add(i.toObject(Store::class.java)!!)
             }
             println(storeList)
-            recyclerView.adapter = StoreAdapter(storeList)
+            val myAdapter = StoreAdapter(storeList)
+            recyclerView.adapter = myAdapter
+            myAdapter.setOnItemClickListener(object: StoreAdapter.onItemClickListener{
+                override fun onItemClick(position: Int) {
+                    goDescription(position)
+                }
+            })
         }
     }
 
     private fun goAuth(){
         val intent: Intent = Intent(this,AuthActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun goDescription(position: Int){
+        intent = Intent(this,DescriptionActivity::class.java).apply {
+            putExtra("position", position)
+        }
         startActivity(intent)
     }
 }
