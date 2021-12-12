@@ -66,7 +66,8 @@
             android:id="@+id/recyclerViewGaleria"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:orientation="horizontal"/>
+            android:orientation="horizontal"
+            tools:listitem="@layout/galery_item"/>
 
     </LinearLayout>
 

@@ -7,4 +7,5 @@ data class Store(var idStore: String? = null,
                  var type: String? = null,
                  var uid: String? = null,
                  var url: String? = null,
-                 var uri: String? = null)
+                 var uri: String? = null,
+                 var description: String?=null)

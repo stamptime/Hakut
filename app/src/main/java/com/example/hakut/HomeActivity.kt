@@ -1,6 +1,7 @@
 package com.example.hakut
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -73,8 +74,9 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun goDescription(position: Int){
+
         intent = Intent(this,DescriptionActivity::class.java).apply {
-            putExtra("position", position)
+            putExtra("position", position.toString())
         }
         startActivity(intent)
     }
