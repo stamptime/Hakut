@@ -12,6 +12,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.text.FieldPosition
 import java.util.*
+import kotlin.collections.ArrayList
 
 enum class ProviderType{
     BASIC,
@@ -48,8 +49,6 @@ class HomeActivity : AppCompatActivity() {
         val recyclerView = binding.storeList
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
-
-
 
         /* Mostrando las tiendas en el homeActivity*/
         db.collection("stores").get().addOnSuccessListener { resultado ->

@@ -16,8 +16,9 @@ class FirebaseStorageManager {
         return storage.child("${id}/storelogo.png")
     }
 
-    fun getGalery(id: String):StorageReference{
-        return storage.child("${id}/galery")
+    fun getGaleryImage(id: String, imageName: String):StorageReference{
+
+        return storage.child("${id}/galery/${imageName}")
     }
 
 }

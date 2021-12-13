@@ -8,4 +8,5 @@ data class Store(var idStore: String? = null,
                  var uid: String? = null,
                  var url: String? = null,
                  var uri: String? = null,
-                 var description: String?=null)
+                 var description: String?=null,
+                 var images: ArrayList<String>?=null)
