@@ -64,13 +64,11 @@ class DescriptionActivity : AppCompatActivity() {
                             for(i in arr){
                                 FirebaseStorageManager().getGaleryImage(currentStore.idStore?:"",i).getFile(localFile)
                                     .addOnFailureListener{error -> println("Ha ocurrido un error al buscar la imagen: ${error.message}")}
-                                println("NOt handle")
-                                Handler().postDelayed({
-                                    bitmapArray.add(BitmapFactory.decodeFile(localFile.absolutePath))
-                                    println("Handler")
-                                },1000)
+                                    .addOnSuccessListener {
+                                            bitmapArray.add(BitmapFactory.decodeFile(localFile.absolutePath))
+                                            binding.recyclerViewGaleria.adapter = GaleryAdapter(bitmapArray)}
                             }
-                            Handler().postDelayed({binding.recyclerViewGaleria.adapter = GaleryAdapter(bitmapArray)},2000)
+
 
                         }
                     }
