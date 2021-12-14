@@ -4,37 +4,30 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.view.LayoutInflater
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hakut.adapters.GaleryAdapter
-import com.example.hakut.databinding.ActivityDescriptionBinding
+import com.example.hakut.databinding.ActivityDescriptionUserBinding
 import com.example.hakut.model.Store
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.io.File
-import com.google.firebase.storage.FirebaseStorage as FirebaseStorage
 
-class DescriptionActivity : AppCompatActivity() {
+class DescriptionUserActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityDescriptionBinding
-    private var db = Firebase.firestore
+    private lateinit var binding: ActivityDescriptionUserBinding
+    private val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityDescriptionBinding.inflate(layoutInflater)
+        binding = ActivityDescriptionUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        hakum-f7562.appspot.com
 
         binding.recyclerViewGaleria.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerViewGaleria.setHasFixedSize(true)
 
         setUp()
-
     }
-
 
     private fun setUp(){
 
@@ -75,7 +68,8 @@ class DescriptionActivity : AppCompatActivity() {
                                     .addOnFailureListener{error -> println("Ha ocurrido un error al buscar la imagen: ${error.message}")}
                                     .addOnSuccessListener {
                                         bitmapArray.add(BitmapFactory.decodeFile(localFile.absolutePath))
-                                        binding.recyclerViewGaleria.adapter = GaleryAdapter(bitmapArray)}
+                                        binding.recyclerViewGaleria.adapter = GaleryAdapter(bitmapArray)
+                                    }
                             }
 
 
@@ -83,8 +77,8 @@ class DescriptionActivity : AppCompatActivity() {
                     }
                     .addOnFailureListener { x -> println("No se ha encontrado ninguna galeria") }
 
-                binding.textViewTitle.text = currentStore.name
-                binding.textViewDescripcion.text = currentStore.description?:"No hay descripcion"
+                binding.editTextTextTitle.setText(currentStore.name)
+                binding.editTextDescription.setText(currentStore.description?:"No hay descripcion")
 
             }else{
                 println("Ha sucedido un error al consultar datos: " + it.exception!!.message)
@@ -92,5 +86,4 @@ class DescriptionActivity : AppCompatActivity() {
         }
 
     }
-
 }

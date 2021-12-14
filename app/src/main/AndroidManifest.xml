@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hakut">
         <activity
+            android:name=".DescriptionUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".DescriptionActivity"
             android:exported="false" />
         <activity

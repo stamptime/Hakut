@@ -73,10 +73,27 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun goDescription(position: Int){
+        val storesList = arrayListOf<Store>()
+        db.collection("stores").get().addOnCompleteListener{
 
-        intent = Intent(this,DescriptionActivity::class.java).apply {
-            putExtra("position", position.toString())
+            if(it.isSuccessful){
+                for( i in it.result!!.documents){
+                    storesList.add(i.toObject(Store::class.java)!!)
+                }
+
+                if(storesList[position].uid == FirebaseAuth.getInstance().currentUser!!.uid){
+                    intent = Intent(this,DescriptionUserActivity::class.java).apply {
+                        putExtra("position", position.toString())
+                    }
+                }else{
+                    intent = Intent(this,DescriptionActivity::class.java).apply {
+                        putExtra("position", position.toString())
+                    }
+                }
+            }
+
+            startActivity(intent)
         }
-        startActivity(intent)
+
     }
 }

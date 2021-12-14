@@ -12,6 +12,10 @@ class FirebaseStorageManager {
         storage.child("${id}/storelogo.png").putFile(uri)
     }
 
+    fun uploadGaleryImage(uri: Uri, id: String){
+        storage.child("${id}/galery/storelogo.png").putFile(uri)
+    }
+
     fun getImageLogoReference(id:String): StorageReference {
         return storage.child("${id}/storelogo.png")
     }
