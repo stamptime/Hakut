@@ -23,6 +23,7 @@ class RegisterStoreActivity : AppCompatActivity() {
     private lateinit var imageURI: Uri
     private var imageEmpty = true
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterStoreBinding.inflate(layoutInflater)

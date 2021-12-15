@@ -84,6 +84,7 @@ class HomeActivity : AppCompatActivity() {
                 if(storesList[position].uid == FirebaseAuth.getInstance().currentUser!!.uid){
                     intent = Intent(this,DescriptionUserActivity::class.java).apply {
                         putExtra("position", position.toString())
+                        putExtra("idStore", storesList[position].idStore)
                     }
                 }else{
                     intent = Intent(this,DescriptionActivity::class.java).apply {

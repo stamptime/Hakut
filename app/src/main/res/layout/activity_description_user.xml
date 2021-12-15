@@ -19,75 +19,90 @@
             android:scaleType="centerCrop"
             app:srcCompat="@color/white"
             tools:srcCompat="@tools:sample/avatars" />
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp"/>
 
-        <EditText
-            android:id="@+id/editTextTextTitle"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            tools:text="Nombre empresa"/>
+            android:layout_height="wrap_content">
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="22dp">
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Descripcion"
-                android:textSize="19sp"/>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp"/>
+                android:orientation="vertical"
+                android:paddingBottom="40dp">
 
-            <EditText
-                android:id="@+id/editTextDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:minHeight="48dp"
-                tools:text="Descripcion de la empresa" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"/>
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/editTextTextTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    tools:text="Nombre empresa"/>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp"/>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewGaleria"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:orientation="horizontal"
-            tools:ignore="SpeakableTextPresentCheck"
-            tools:listitem="@layout/galery_item" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="22dp">
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:text="Agregar imagen"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Descripcion"
+                        android:textSize="19sp"/>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"/>
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:text="Guardar"/>
+                    <EditText
+                        android:id="@+id/editTextDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:minHeight="48dp"
+                        tools:text="Descripcion de la empresa" />
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewGaleria"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:orientation="horizontal"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    tools:listitem="@layout/galery_item" />
+
+                <Button
+                    android:id="@+id/buttonAddImage"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:text="Agregar imagen"/>
+
+                <Button
+                    android:id="@+id/buttonSaveChanges"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:text="Guardar"/>
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 
