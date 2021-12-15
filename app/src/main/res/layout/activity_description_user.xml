@@ -15,10 +15,10 @@
         <ImageView
             android:id="@+id/imageViewLogo"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="216dp"
             android:scaleType="centerCrop"
             app:srcCompat="@color/white"
-            tools:srcCompat="@tools:sample/avatars"/>
+            tools:srcCompat="@tools:sample/avatars" />
         <Space
             android:layout_width="match_parent"
             android:layout_height="15dp"/>
@@ -74,6 +74,23 @@
             tools:ignore="SpeakableTextPresentCheck"
             tools:listitem="@layout/galery_item" />
 
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:text="Agregar imagen"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:text="Guardar"/>
+
     </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
