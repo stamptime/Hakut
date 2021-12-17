@@ -47,6 +47,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore-ktx'
     implementation 'com.google.firebase:firebase-storage-ktx'
 
+//    Material desgin
+    implementation 'com.google.android.material:material:<version>'
 
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     //Native
