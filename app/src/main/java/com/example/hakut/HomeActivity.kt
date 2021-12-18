@@ -1,5 +1,6 @@
 package com.example.hakut
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
@@ -51,7 +52,9 @@ class HomeActivity : AppCompatActivity() {
 
     private fun setUp(){
 
+        val tempStoreList : ArrayList<Store> = arrayListOf()
         val recyclerView = binding.storeList
+
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
 
@@ -64,24 +67,44 @@ class HomeActivity : AppCompatActivity() {
             for(i in resultado.documents){
                 storeList.add(i.toObject(Store::class.java)!!)
             }
-            val myAdapter = StoreAdapter(storeList)
 
-//            binding.searchItem.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-//
-//                override fun onQueryTextSubmit(query: String?): Boolean {
-//                    TODO("Not implemented")
-//                }
-//
-//                override fun onQueryTextChange(newText: String?): Boolean {
-//                    if (newText!!.isNotEmpty()) {
-////                    storeList = storeList.map { x -> if(x.name!!.lowercase().contains(newText.lowercase())) x else null } as ArrayList<Store>
-//                    }
-//                    return true
-//                }
-//            })
-
-
+            tempStoreList.addAll(storeList)
+            val myAdapter = StoreAdapter(tempStoreList)
             recyclerView.adapter = myAdapter
+
+            binding.searchItem.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return true
+                }
+
+                @SuppressLint("NotifyDataSetChanged")
+                override fun onQueryTextChange(newText: String?): Boolean {
+
+                    if (newText!!.isNotEmpty()) {
+                        tempStoreList.clear()
+                        storeList.forEach{
+                            x ->
+                            if (x.name!!.toLowerCase(Locale.getDefault()).contains(newText.lowe
+                                        rcase())){
+                                tempStoreList.add(x)
+                            }
+                        }
+                        println(tempStoreList)
+                        recyclerView.adapter!!.notifyDataSetChanged()
+
+                    }else{
+                        tempStoreList.clear()
+                        tempStoreList.addAll(storeList)
+                        recyclerView.adapter!!.notifyDataSetChanged()
+                    }
+                    return true
+                }
+
+            })
+
+
+
 
             myAdapter.setOnItemClickListener(object: StoreAdapter.onItemClickListener{
                 override fun onItemClick(position: Int) {
