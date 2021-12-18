@@ -85,8 +85,7 @@ class HomeActivity : AppCompatActivity() {
                         tempStoreList.clear()
                         storeList.forEach{
                             x ->
-                            if (x.name!!.toLowerCase(Locale.getDefault()).contains(newText.lowe
-                                        rcase())){
+                            if (x.name!!.toLowerCase(Locale.getDefault()).contains(newText.lowercase())){
                                 tempStoreList.add(x)
                             }
                         }
